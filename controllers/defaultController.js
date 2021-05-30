@@ -11,6 +11,15 @@ module.exports = {
     res.render("default/index", {pageTitle});
   },
 
+  aboutGet: (req, res) => {
+    let pageTitle = 'About'
+    res.render("default/about", {pageTitle});
+  },
+
+  contactGet: (req, res) => {
+    let pageTitle = 'Contact'
+    res.render("default/contact", {pageTitle});
+  },
 
   registerGet: (req, res)=>{
     let pageTitle = 'Register'

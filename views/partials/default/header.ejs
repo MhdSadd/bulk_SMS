@@ -9,5 +9,24 @@
   <link rel="stylesheet" href="https://bootswatch.com/4/journal/bootstrap.min.css">
   <link rel="stylesheet" href="/styles/custom.css">
 </head>
-<body>
+<body class="container">
+  <nav>
+   <a href="/"><h2>Scheduler</h2></a> 
+    <ul>
+      <% if (pageTitle === 'Home') { %>
+        <li><a href="/" class="active">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact</a></li>
+      <% } else if (pageTitle === 'About') { %>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about" class="active">About</a></li>
+        <li><a href="/contact">Contact</a></li>
+      <% } else { %>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact" class="active">Contact</a></li>
+      <% } %>
+      <li><a href="/admin/login">Login</a></li>
+    </ul>
+  </nav>
   

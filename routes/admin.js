@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const {loginGet, loginPost, dashboard, users_table, reminder_page, reminder_post, logout} = require('../controllers/adminController')
+const {loginGet, loginPost, dashboard, users_table, reminder_page, reminder_post, reminder_scheduler, logout} = require('../controllers/adminController')
 const {verifyPermission} = require('../config/auth')
 
 
@@ -13,6 +13,8 @@ router.get('/user', verifyPermission, users_table)
 router.route('/message')
 .get(verifyPermission, reminder_page)
 .post(reminder_post)
+
+router.post('/schedule', reminder_scheduler)
 
 router.get('/logout', logout)
 
