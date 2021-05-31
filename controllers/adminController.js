@@ -110,7 +110,7 @@ module.exports = {
         })
         .then((users)=>{
         let phone_numbers = users.map((item)=>{return item.phone_number})
-        let task = cron.schedule('*/1 * * * *', async function sendMessage() {
+        let task = cron.schedule('0 0 14,28 * *', async function sendMessage() {
         const {subject, message_body} = req.body
         let message = `${req.body.subject.toUpperCase()} 
         ${req.body.message_body}`
