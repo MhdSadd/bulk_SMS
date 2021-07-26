@@ -13,6 +13,7 @@
     "body-parser": "^1.19.0",
     "connect-flash": "^0.1.1",
     "connect-mongo": "^3.2.0",
+    "connect-redis": "^5.2.0",
     "cookie": "^0.4.1",
     "cookie-parser": "^1.4.5",
     "dotenv": "^8.2.0",
@@ -25,7 +26,8 @@
     "node-cron": "^3.0.0",
     "parser": "^0.1.4",
     "passport": "^0.4.1",
-    "passport-local": "^1.0.0"
+    "passport-local": "^1.0.0",
+    "redis": "^3.1.2"
   },
   "devDependencies": {},
   "scripts": {

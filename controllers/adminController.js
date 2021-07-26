@@ -125,7 +125,7 @@ module.exports = {
         })
         task.start() 
         res.redirect('/admin/message')
-      // 0 0 */14 * * runs at 00:00 on 14th monthly
+      // 0 0 */14 * * runs at 00:00 on 14th of every monthly
       // 0 0 14,28 * * runs twice a month(14th and 28th) at 00:00
       // cron.schedule('* * * * *', () => {console.log(`message ${message} sent at  ${new Date()} `)});
       // sendMessage()
@@ -140,7 +140,7 @@ module.exports = {
       logout: (req, res) => {
         req.logOut();
         req.flash('success_msg', "You are logged out");
-        res.redirect("/admin/login");
+        res.redirect("/");
     }
 
 }

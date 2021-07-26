@@ -7,7 +7,7 @@ const bcrypt = require("bcrypt");
 
 // connecting to MongoDB with
 mongoose
-  .connect('mongodb+srv://reminder:reminder@reminder.nmvtt.mongodb.net/ReminderApp?retryWrites=true&w=majority', {
+  .connect('mongodb://localhost/ReminderApp', {
     useCreateIndex: true,
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -20,8 +20,8 @@ mongoose
   });
 
 const admin = new Admin({
-  full_name: "SHEIDU Bashir",
-  email: "remiderapp@gmail.com",
+  full_name: "JOHN DOE",
+  email: "admin.reminderapp@gmail.com",
   phone: 08068640710,
   password: "123abc",
   user_type: "Admin",
