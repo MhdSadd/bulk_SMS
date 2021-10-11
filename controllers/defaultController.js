@@ -32,23 +32,24 @@ module.exports = {
   },
 
   registerPost: async (req, res) => {
-    const { user_name, house_address, phone_number } = req.body;
+    let { user_name, house_address, phone_number } = req.body;
     let errors = [];
-    // console.log(req.body)
+    
+    // Checking Required Field
     if (!user_name || !phone_number) {
       errors.push({ msg: "username and phone number are required" });
-      let pageTitle = "Register";
-      let user_name = req.body.user_name;
-      let house_address = req.body.house_address;
-      let phone_number = req.body.phone_number;
+      // let pageTitle = "Register";
+      // let user_name = req.body.user_name;
+      // let house_address = req.body.house_address;
+      // let phone_number = req.body.phone_number;
     }
 
     if (!phone_number.match(/^\d+$/) && phone_number.length != 11) {
       errors.push({ msg: "invalid phone Number Try Again" });
-      let pageTitle = "Register";
-      let user_name = req.body.user_name;
-      let house_address = req.body.house_address;
-      let phone_number;
+      // let pageTitle = "Register";
+      // let user_name = req.body.user_name;
+      // let house_address = req.body.house_address;
+      // let phone_number;
     }
 
     if (errors.length > 0) {
@@ -61,7 +62,8 @@ module.exports = {
         errors,
       });
     } else {
-      User.find({ phone_number }).then((user) => {
+      phone_number = `+234${phone_number.replace(/^0+/, "")}`
+      User.findOne({ phone_number }).then((user) => {
         if (user) {
           console.log(user);
           errors.push({ msg: "this number is already registered" });
@@ -79,7 +81,7 @@ module.exports = {
         } else {
           const newUser = new User({
             user_name,
-            phone_number: `+234${phone_number.replace(/^0+/, "")}`,
+            phone_number,
             house_address,
           });
           newUser.save();
@@ -87,7 +89,7 @@ module.exports = {
             "success_msg",
             "You are now registered and will be receiving monthly reminder"
           );
-          res.redirect("/about");
+          res.redirect("/");
         }
       });
     }
